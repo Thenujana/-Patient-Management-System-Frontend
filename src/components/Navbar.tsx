@@ -81,7 +81,7 @@ const Navbar = () => {
           <Link
             to="/"
             onClick={() => setIsOpen(false)}
-            className="text-gray-700 hover:text-green-700 font-medium transition-colors duration-300"
+            className="text-gray-700 hover:text-green-700 font-medium transition-colors duration-300 "
           >
             Home
           </Link>

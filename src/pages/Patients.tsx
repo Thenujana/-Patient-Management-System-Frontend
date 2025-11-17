@@ -4,12 +4,14 @@ import PatientService from "../services/patientService";
 
 import Swal from "sweetalert2";
 import Navbar from "../components/Navbar";
+import Search from "../components/Search";
 
 const Patients: React.FC = () => {
   const [patients, setPatients] = useState<Patient[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editedPatient, setEditedPatient] = useState<Patient | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => fetchPatients(), []);
 
@@ -68,10 +70,29 @@ const Patients: React.FC = () => {
     });
   };
 
+ 
+  const highlightMatch = (text: string) => {
+    if (!searchQuery.trim()) return text;
+
+    const regex = new RegExp(`(${searchQuery})`, "gi");
+    return text.replace(
+      regex,
+      (match) => `<span class="bg-yellow-300 font-semibold rounded px-1">${match}</span>`
+    );
+  };
+
+//filtering by query
+  const filteredPatients = patients.filter((p) =>
+    p.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    p.email.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  
   const renderCell = (field: keyof Patient, patient: Patient) => {
     const isEditing = editingId === patient.id;
-    return isEditing ? (
-      field === "gender" ? (
+
+    if (isEditing) {
+      return field === "gender" ? (
         <select
           name="gender"
           value={editedPatient?.gender || ""}
@@ -90,25 +111,43 @@ const Patients: React.FC = () => {
           onChange={handleChange}
           className="border px-2 py-1 rounded w-full"
         />
-      )
-    ) : (
-      patient[field] || "-"
-    );
+      );
+    }
+
+    const value = patient[field];
+
+    if (typeof value === "string") {
+      return (
+        <span
+          dangerouslySetInnerHTML={{
+            __html: highlightMatch(value),
+          }}
+        />
+      );
+    }
+
+    return value;
   };
 
   if (loading) return <p className="text-center text-green-600 mt-10">Loading...</p>;
 
   return (
     <div className="min-h-screen bg-green-50 p-6 mt-8">
-        <Navbar />
+      <Navbar />
+
+     
+      <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+
       <div className="max-w-7xl mx-auto bg-white shadow-lg rounded-xl p-6">
-        <h1 className="text-3xl font-bold text-green-700 mb-6 text-center">Patients List</h1>
+        <h1 className="text-3xl font-bold text-green-700 mb-6 text-center">
+          Patients List
+        </h1>
 
         <div className="overflow-x-auto">
           <table className="min-w-full table-auto border-collapse shadow-sm rounded-lg overflow-hidden">
             <thead className="bg-green-600 text-white">
               <tr>
-                <th className="px-4 py-2">ID</th>
+                {/* <th className="px-4 py-2">ID</th> */}
                 <th className="px-4 py-2">Full Name</th>
                 <th className="px-4 py-2">Email</th>
                 <th className="px-4 py-2">Telephone</th>
@@ -118,54 +157,65 @@ const Patients: React.FC = () => {
                 <th className="px-4 py-2">Actions</th>
               </tr>
             </thead>
+
             <tbody>
-              {patients.map((p) => {
-                const isEditing = editingId === p.id;
-                return (
-                  <tr key={p.id} className="border-b hover:bg-green-50 transition">
-                    <td className="px-4 py-2">{p.id}</td>
-                    <td className="px-4 py-2">{renderCell("fullName", p)}</td>
-                    <td className="px-4 py-2">{renderCell("email", p)}</td>
-                    <td className="px-4 py-2">{renderCell("telephone", p)}</td>
-                    <td className="px-4 py-2">{renderCell("gender", p)}</td>
-                    <td className="px-4 py-2">{renderCell("address", p)}</td>
-                    <td className="px-4 py-2">{renderCell("nic", p)}</td>
-                    <td className="px-4 py-2 flex gap-2">
-                      {isEditing ? (
-                        <>
-                          <button
-                            onClick={saveEdit}
-                            className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 transition"
-                          >
-                            Save
-                          </button>
-                          <button
-                            onClick={cancelEdit}
-                            className="bg-gray-400 text-white px-3 py-1 rounded hover:bg-gray-500 transition"
-                          >
-                            Cancel
-                          </button>
-                        </>
-                      ) : (
-                        <>
-                          <button
-                            onClick={() => startEdit(p)}
-                            className="bg-yellow-400 text-white px-3 py-1 rounded hover:bg-yellow-500 transition"
-                          >
-                            Edit
-                          </button>
-                          <button
-                            onClick={() => deletePatient(p.id!)}
-                            className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
-                          >
-                            Delete
-                          </button>
-                        </>
-                      )}
-                    </td>
-                  </tr>
-                );
-              })}
+              {filteredPatients.length > 0 ? (
+                filteredPatients.map((p) => {
+                  const isEditing = editingId === p.id;
+
+                  return (
+                    <tr key={p.id} className="border-b hover:bg-green-50 transition">
+                      {/* <td className="px-4 py-2">{p.id}</td> */}
+                      <td className="px-4 py-2">{renderCell("fullName", p)}</td>
+                      <td className="px-4 py-2">{renderCell("email", p)}</td>
+                      <td className="px-4 py-2">{renderCell("telephone", p)}</td>
+                      <td className="px-4 py-2">{renderCell("gender", p)}</td>
+                      <td className="px-4 py-2">{renderCell("address", p)}</td>
+                      <td className="px-4 py-2">{renderCell("nic", p)}</td>
+
+                      <td className="px-4 py-2 flex gap-2">
+                        {isEditing ? (
+                          <>
+                            <button
+                              onClick={saveEdit}
+                              className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 transition"
+                            >
+                              Save
+                            </button>
+                            <button
+                              onClick={cancelEdit}
+                              className="bg-gray-400 text-white px-3 py-1 rounded hover:bg-gray-500 transition"
+                            >
+                              Cancel
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            <button
+                              onClick={() => startEdit(p)}
+                              className="bg-yellow-400 text-white px-3 py-1 rounded hover:bg-yellow-500 transition"
+                            >
+                              Edit
+                            </button>
+                            <button
+                              onClick={() => deletePatient(p.id!)}
+                              className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+                            >
+                              Delete
+                            </button>
+                          </>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })
+              ) : (
+                <tr>
+                  <td colSpan={8} className="text-center p-4 text-gray-500">
+                    No patients found for this search.
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
