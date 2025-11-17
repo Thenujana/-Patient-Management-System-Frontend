@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import heroImage from "../assets/patient-hero.png";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-0">
+        <Navbar />
 
      
       <section className="w-full bg-gradient-to-r from-green-50 to-white flex flex-col md:flex-row items-center justify-between p-10 md:p-20 shadow-lg">
