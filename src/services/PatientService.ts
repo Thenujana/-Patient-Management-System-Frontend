@@ -1,4 +1,4 @@
-// src/services/PatientService.ts
+
 import axios from "axios";
 
 export interface Patient {
