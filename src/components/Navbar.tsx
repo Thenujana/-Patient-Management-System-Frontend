@@ -16,19 +16,19 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-8">
           <Link
             to="/"
-            className="text-gray-700 hover:text-green-700 font-medium transition-colors duration-300"
+            className="text-gray-700 hover:text-green-400 text-large font-bold transition-colors duration-300"
           >
             Home
           </Link>
           <Link
             to="/add-patient"
-            className="text-gray-700 hover:text-green-700 font-medium transition-colors duration-300"
+            className="text-gray-700 hover:text-green-400 text-large font-bold transition-colors duration-300"
           >
             Add Patient
           </Link>
           <Link
             to="/patients"
-            className="text-gray-700 hover:text-green-700 font-medium transition-colors duration-300"
+            className="text-gray-700 hover:text-green-400 text-large font-bold transition-colors duration-300"
           >
             View Patients
           </Link>

@@ -147,7 +147,7 @@ const Patients: React.FC = () => {
           <table className="min-w-full table-auto border-collapse shadow-sm rounded-lg overflow-hidden">
             <thead className="bg-green-600 text-white">
               <tr>
-                {/* <th className="px-4 py-2">ID</th> */}
+          
                 <th className="px-4 py-2">Full Name</th>
                 <th className="px-4 py-2">Email</th>
                 <th className="px-4 py-2">Telephone</th>
@@ -165,7 +165,7 @@ const Patients: React.FC = () => {
 
                   return (
                     <tr key={p.id} className="border-b hover:bg-green-50 transition">
-                      {/* <td className="px-4 py-2">{p.id}</td> */}
+                    
                       <td className="px-4 py-2">{renderCell("fullName", p)}</td>
                       <td className="px-4 py-2">{renderCell("email", p)}</td>
                       <td className="px-4 py-2">{renderCell("telephone", p)}</td>
