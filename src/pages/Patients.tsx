@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import type { Patient } from "../services/patientService";
-import PatientService from "../services/patientService";
+import type { Patient } from "../services/PatientService";
+import PatientService from "../services/PatientService";
 
 import Swal from "sweetalert2";
 import Navbar from "../components/Navbar";

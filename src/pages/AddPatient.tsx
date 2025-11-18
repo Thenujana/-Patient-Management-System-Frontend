@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import PatientService from "../services/patientService";
-import type { Patient } from "../services/patientService";
+import type { Patient } from "../services/PatientService";
+import PatientService from "../services/PatientService";
 import { User, Mail, Phone, Home, IdCard } from "lucide-react"; 
 import Navbar from "../components/Navbar";
 
-const AddPatients7: React.FC = () => {
+const AddPatients: React.FC = () => {
   const [patient, setPatient] = useState<Patient>({
     fullName: "", email: "", telephone: "", gender: "", address: "", nic: "",
   });
@@ -140,4 +140,4 @@ const AddPatients7: React.FC = () => {
   );
 };
 
-export default AddPatients7;
+export default AddPatients;
