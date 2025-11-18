@@ -41,6 +41,8 @@ Sweet alert2 for notifications
 <img width="1843" height="888" alt="Screenshot 2025-11-18 123024" src="https://github.com/user-attachments/assets/1860fde8-41eb-40e2-a7a6-5653e4579aa1" />
 # Enables editing
 <img width="1890" height="908" alt="Screenshot 2025-11-18 123040" src="https://github.com/user-attachments/assets/55d8c960-a59b-46e1-b502-ad7e11ca3d8f" />
+# Alert before deleting by Sweet Alert
+<img width="1918" height="913" alt="Screenshot 2025-11-18 131939" src="https://github.com/user-attachments/assets/894acfcf-07e8-4d12-a324-885187c2b17c" />
 
 
 
