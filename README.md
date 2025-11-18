@@ -1,73 +1,50 @@
-# React + TypeScript + Vite
+# Patient Management System (React+Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive Patient Management System built with React, TypeScript, and Tailwind CSS, Axios,React-lucid ect. This application allows users to add, view, update, and delete patient records efficiently. It includes client-side validation, a clean UI, and seamless integration with a backend API for storing patient data.
 
-Currently, two official plugins are available:
+# Features
+Add patient
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Edit patient
 
-## React Compiler
+Delete patient
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+View all patients
 
-## Expanding the ESLint configuration
+Validation included
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Responsive UI
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+React + Tailwind CSS
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+API integration
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# Tech Stack and libraries used
+React frontend 
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Connected with springboot backend
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+MySql Database
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Axios
+
+React-lucid for icons
+
+Sweet alert2 for notifications
+
+# Screenshots
+<img width="1919" height="911" alt="Screenshot 2025-11-18 123113" src="https://github.com/user-attachments/assets/a612e658-633d-45e3-a161-2612c664ad29" />
+<img width="1919" height="914" alt="Screenshot 2025-11-18 123057" src="https://github.com/user-attachments/assets/e2a69035-b1fd-49f1-bb45-4ea8868c052d" />
+# Validations
+<img width="1916" height="903" alt="Screenshot 2025-11-18 124916" src="https://github.com/user-attachments/assets/333ae1ff-6073-46e0-a787-70740d918d58" />
+# view all the patients in the Database
+<img width="1843" height="888" alt="Screenshot 2025-11-18 123024" src="https://github.com/user-attachments/assets/1860fde8-41eb-40e2-a7a6-5653e4579aa1" />
+# Enables editing
+<img width="1890" height="908" alt="Screenshot 2025-11-18 123040" src="https://github.com/user-attachments/assets/55d8c960-a59b-46e1-b502-ad7e11ca3d8f" />
+# Alert before deleting by Sweet Alert
+<img width="1918" height="913" alt="Screenshot 2025-11-18 131939" src="https://github.com/user-attachments/assets/894acfcf-07e8-4d12-a324-885187c2b17c" />
+
+
+
+
+
