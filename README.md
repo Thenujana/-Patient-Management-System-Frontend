@@ -21,14 +21,28 @@ API integration
 
 # Tech Stack and libraries used
 React frontend 
+
 Connected with springboot backend
+
 MySql Database
+
 Axios
+
 React-lucid for icons
+
 Sweet alert2 for notifications
 
 # Screenshots
 <img width="1919" height="911" alt="Screenshot 2025-11-18 123113" src="https://github.com/user-attachments/assets/a612e658-633d-45e3-a161-2612c664ad29" />
 <img width="1919" height="914" alt="Screenshot 2025-11-18 123057" src="https://github.com/user-attachments/assets/e2a69035-b1fd-49f1-bb45-4ea8868c052d" />
+# Validations
+<img width="1916" height="903" alt="Screenshot 2025-11-18 124916" src="https://github.com/user-attachments/assets/333ae1ff-6073-46e0-a787-70740d918d58" />
+# view all the patients in the Database
+<img width="1843" height="888" alt="Screenshot 2025-11-18 123024" src="https://github.com/user-attachments/assets/1860fde8-41eb-40e2-a7a6-5653e4579aa1" />
+# Enables editing
+<img width="1890" height="908" alt="Screenshot 2025-11-18 123040" src="https://github.com/user-attachments/assets/55d8c960-a59b-46e1-b502-ad7e11ca3d8f" />
+
+
+
 
 
