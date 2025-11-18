@@ -5,6 +5,7 @@ import PatientService from "../services/PatientService";
 import Swal from "sweetalert2";
 import Navbar from "../components/Navbar";
 import Search from "../components/Search";
+import Footer from "../components/Footer";
 
 const Patients: React.FC = () => {
   const [patients, setPatients] = useState<Patient[]>([]);
@@ -220,6 +221,7 @@ const Patients: React.FC = () => {
           </table>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

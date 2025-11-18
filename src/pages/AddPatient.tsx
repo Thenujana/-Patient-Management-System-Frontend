@@ -3,6 +3,7 @@ import type { Patient } from "../services/PatientService";
 import PatientService from "../services/PatientService";
 import { User, Mail, Phone, Home, IdCard } from "lucide-react"; 
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const AddPatients: React.FC = () => {
   const [patient, setPatient] = useState<Patient>({
@@ -136,6 +137,7 @@ const AddPatients: React.FC = () => {
           </form>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
